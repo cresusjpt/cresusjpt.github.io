@@ -1,7 +1,21 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "A propos"
+    url: /about/
+  - title: "Blog"
+    url: /articles/
+    excerpt: "Listes des articles, des projets et des tutoriels"
+    image: articles.jpg
+  - title: "Contact"
+    url: /contact/
+    image:
+    excerpt:
+  - title: "Github"
+    url: https://github.com/cresusjpt/
+    image:
+    excerpt:
+  - title: "Sitemap"
+    url: /sitemap/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"

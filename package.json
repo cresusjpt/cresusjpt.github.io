@@ -2,7 +2,7 @@
   "name": "minimal-mistakes",
   "private": true,
   "version": "4.23.0",
-  "description": "Minimal Mistakes 2 column Jekyll theme.",
+  "description": "Jeanpaul Tossou Tech Blog based on Jekyll Theme by Github pages and Minimal Mistakes.",
   "repository": {
     "type": "git",
     "url": "git://github.com/mmistakes/minimal-mistakes.git"
@@ -12,12 +12,12 @@
     "theme",
     "minimal"
   ],
-  "author": "Michael Rose",
+  "author": "Jeanpaul Tossou y",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mmistakes/minimal-mistakes/issues"
   },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
+  "homepage": "https://cresusjpt.github.io/",
   "engines": {
     "node": ">= 0.10.0"
   },
