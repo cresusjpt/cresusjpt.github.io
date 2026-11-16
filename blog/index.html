@@ -1,0 +1,24 @@
+---
+layout: default
+title: Notes techniques
+permalink: /blog/
+folio: 03 / 05
+description: "Notes techniques de Jean-Paul Tossou : architecture logicielle, mobile, données, objets connectés."
+---
+<div class="contenu fin">
+  <header class="page-entete">
+    <h1>Notes techniques</h1>
+    <p class="chapeau">Ce que j'apprends en construisant&nbsp;: architecture, mobile, données, objets connectés. Chaque note porte un numéro, comme une note d'application. <a href="{{ '/feed.xml' | relative_url }}">S'abonner au flux RSS</a>.</p>
+  </header>
+
+  {% if site.posts.size > 0 %}
+  <ul class="notes">
+    {%- for post in site.posts %}
+    {%- assign numero = site.posts.size | minus: forloop.index0 %}
+    {% include note.html note=post numero=numero niveau=2 %}
+    {%- endfor %}
+  </ul>
+  {% else %}
+  <p class="vide">La première note est en préparation. Abonnez-vous au <a href="{{ '/feed.xml' | relative_url }}">flux RSS</a> pour la recevoir dès sa publication.</p>
+  {% endif %}
+</div>

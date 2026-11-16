@@ -1,0 +1,25 @@
+# Produits créés ou cofondés par Jean-Paul. Les deux premiers apparaissent sur l'accueil.
+# Les missions pour d'autres (sécurité intérieure, Commission européenne…) sont dans missions.yml.
+# « couches » = repères de la vue en coupe touchés (1 objet connecté … 5 applications).
+# À ne jamais publier : noms des fournisseurs, coûts et marges, noms des conciergeries clientes.
+- titre: Lockey You
+  periode: Depuis fin 2023, en production
+  couches: [1, 2, 3, 4, 5]
+  resume: >-
+    Check-in autonome et contrôle d'accès pour la location courte durée. Cofondateur et
+    directeur technique, je porte l'architecture d'une chaîne construite en équipe :
+    boîtier d'interphone sur ESP32, liaisons MQTT et BLE, plateforme multi-locataire en
+    production, application mobile Flutter, synchronisation des réservations.
+  pile: [ESP32, MQTT, Python, AWS, Flutter]
+  lien: /projets/lockey-you/
+  lien_texte: Lire l'étude de cas
+
+- titre: Diffuseur de parfum connecté
+  periode: 2020 – 2021
+  couches: [1, 2, 3, 5]
+  resume: >-
+    Du prototype au produit : firmware ESP32 qui pilote la diffusion, applications
+    Android et iOS pour programmer les cycles et suivre chaque appareil.
+  pile: [ESP32, C++, BLE, Firebase, Android, iOS]
+  lien: https://github.com/cresusjpt/scentbox_proto
+  lien_texte: Voir le prototype

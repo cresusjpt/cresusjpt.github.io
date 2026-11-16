@@ -1,0 +1,34 @@
+---
+layout: default
+rubrique: /blog/
+---
+{%- for p in site.posts -%}
+  {%- if p.url == page.url -%}
+    {%- assign numero = site.posts.size | minus: forloop.index0 -%}
+    {%- assign i_recente = forloop.index0 | minus: 1 -%}
+    {%- if i_recente >= 0 %}{% assign plus_recente = site.posts[i_recente] %}{% endif -%}
+    {%- assign plus_ancienne = site.posts[forloop.index] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign mots = content | number_of_words -%}
+<article class="note">
+  <header class="note-entete">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">
+      <span class="numero">NT-{{ numero | prepend: "00" | slice: -3, 3 }}</span>
+      {% include date.html date=page.date %}
+      <span>{{ mots | plus: 199 | divided_by: 200 }} min de lecture</span>
+    </p>
+    {% if page.exemple %}<p class="tampon">Exemple, non publié</p>{% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <footer class="note-pied">
+    <p>Une question, une correction&nbsp;? <a href="{{ '/contact/' | relative_url }}">Écrivez-moi</a>.</p>
+    <div>{% if plus_ancienne %}<a class="lien-fleche precedente" href="{{ plus_ancienne.url | relative_url }}">{% include fleche.html %} {{ plus_ancienne.title }}</a>{% endif %}</div>
+    <div class="suivante">{% if plus_recente %}<a class="lien-fleche" href="{{ plus_recente.url | relative_url }}">{{ plus_recente.title }} {% include fleche.html %}</a>{% endif %}</div>
+  </footer>
+</article>

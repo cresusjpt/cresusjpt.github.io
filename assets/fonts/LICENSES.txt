@@ -1,0 +1,9 @@
+Osifont (osifont-lgpl3fe.woff)
+  Lettrage conforme à l'ISO 3098, par hikikomori82 et contributeurs.
+  Licence : GNU LGPL version 3 avec exception pour les polices.
+  Source : https://github.com/hikikomori82/osifont
+
+Atkinson Hyperlegible Next (atkinson-hyperlegible-next-latin-wght-*.woff2)
+  Braille Institute of America.
+  Licence : SIL Open Font License 1.1 — https://openfontlicense.org
+  Fichiers web : https://fontsource.org/fonts/atkinson-hyperlegible-next

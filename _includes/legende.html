@@ -1,0 +1,6 @@
+<ul class="legende" aria-label="Couches de la coupe, de haut en bas">
+  <li class="legende-titre" aria-hidden="true">De haut en bas&nbsp;:</li>
+  {%- for c in site.data.couches %}
+  <li><span class="repere">{{ c.rep }}</span>{{ c.nom }}</li>
+  {%- endfor %}
+</ul>

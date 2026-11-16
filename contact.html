@@ -1,0 +1,95 @@
+---
+layout: default
+title: Contact
+permalink: /contact/
+folio: 05 / 05
+description: Écrire à Jean-Paul Tossou pour un projet, une mission ou une équipe.
+---
+<div class="contenu">
+  <header class="page-entete">
+    <h1>Écrivez-moi.</h1>
+    <p class="chapeau">Une architecture à concevoir, une application à reprendre, une chaîne de données ou un objet connecté à fiabiliser&nbsp;: décrivez votre besoin en quelques lignes. Je réponds personnellement.</p>
+  </header>
+
+  <div class="contact-grille">
+    {% if site.contact_form %}
+    <form class="formulaire" action="{{ site.contact_form }}" method="post" accept-charset="UTF-8">
+      <div class="champ">
+        <label for="nom">Nom</label>
+        <input id="nom" name="nom" type="text" autocomplete="name" required>
+      </div>
+      <div class="champ">
+        <label for="email">Adresse e-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="champ champ-select large">
+        <label for="objet">Objet</label>
+        <select id="objet" name="objet">
+          <option>Un projet à réaliser</option>
+          <option>Une mission</option>
+          <option>Une équipe, avec Saltech</option>
+          <option>Autre chose</option>
+        </select>
+      </div>
+      <div class="champ large">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="7" required placeholder="Le contexte, ce que vous cherchez, vos délais."></textarea>
+      </div>
+      <input class="piege" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="envoi">
+        <p class="statut" role="status" aria-live="polite"></p>
+        {% if site.hypotheses %}<p class="tampon">Envoi à vérifier</p>{% endif %}
+        <button class="bouton principal" type="submit">Envoyer la demande {% include fleche.html %}</button>
+      </div>
+    </form>
+    {% else %}
+    <div class="ecrire">
+      <p class="legende-cadre">Par e-mail</p>
+      <a class="adresse" href="mailto:{{ site.author.email }}">{{ site.author.email | replace: "@", "@<wbr>" }}</a>
+      <p>Pour une réponse rapide, indiquez le contexte, ce que vous cherchez et vos délais. Je réponds personnellement.</p>
+      <div class="actions">
+        <a class="bouton principal" href="mailto:{{ site.author.email }}?subject=Prise%20de%20contact">Écrire un e-mail {% include fleche.html %}</a>
+        {% if site.rendez_vous %}<a class="bouton" href="{{ site.rendez_vous }}">Prendre rendez-vous</a>{% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+    <aside>
+      <h2 class="visuellement-cache">Autres moyens de contact</h2>
+      <ul class="canaux">
+        <li><span>E-mail</span><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+        <li><span>LinkedIn</span><a href="{{ site.author.linkedin }}">jean-paul-tossou</a></li>
+        <li><span>GitHub</span><a href="{{ site.author.github }}">cresusjpt</a></li>
+        <li><span>Société</span><a href="{{ site.saltech }}">Saltech</a></li>
+        <li><span>Lieu</span>France</li>
+      </ul>
+    </aside>
+  </div>
+</div>
+
+{% if site.contact_form %}
+<script>
+  // Envoi sans quitter la page ; sans JavaScript, le formulaire part normalement.
+  document.querySelector(".formulaire").addEventListener("submit", async (e) => {
+    const form = e.currentTarget;
+    const statut = form.querySelector(".statut");
+    const bouton = form.querySelector("button");
+    e.preventDefault();
+    bouton.disabled = true;
+    statut.className = "statut";
+    statut.textContent = "Envoi en cours…";
+    try {
+      const r = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
+      if (!r.ok) throw new Error(r.status);
+      form.reset();
+      statut.classList.add("ok");
+      statut.textContent = "Message envoyé. Merci, je vous réponds rapidement.";
+    } catch {
+      statut.classList.add("erreur");
+      statut.textContent = "L'envoi a échoué. Réessayez, ou écrivez-moi directement par e-mail.";
+    } finally {
+      bouton.disabled = false;
+    }
+  });
+</script>
+{% endif %}

@@ -1,0 +1,96 @@
+---
+layout: default
+title: Lockey You, étude de cas
+permalink: /projets/lockey-you/
+rubrique: /projets/
+folio: 02 / 05
+description: "Lockey You, check-in autonome pour la location courte durée : boîtier ESP32, MQTT, plateforme multi-locataire sur AWS, application Flutter. Étude de cas par son cofondateur et directeur technique."
+---
+{%- comment -%} État au 12 novembre 2026. Ne jamais publier : noms des fournisseurs, coûts, noms des clients. {%- endcomment -%}
+<div class="contenu">
+  <header class="page-entete">
+    <h1>Lockey You</h1>
+    <p class="chapeau">Check-in autonome et contrôle d'accès pour la location courte durée. Chaque séjour reçoit son code, qui expire de lui-même, chaque entrée est tracée et le ménage est planifié. J'ai cofondé Lockey You. Avec l'équipe, nous en construisons toute la technique, du boîtier électronique aux applications, et j'en porte l'architecture.</p>
+    {% if site.hypotheses %}<p class="tampon">Étude de cas à valider</p>{% endif %}
+  </header>
+
+  <table class="cartouche cartouche-projet" role="table">
+    <caption class="visuellement-cache">Lockey You en bref</caption>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <td role="cell"><span>Rôle</span>Cofondateur, directeur technique</td>
+        <td role="cell"><span>Depuis</span>Fin 2023</td>
+        <td role="cell"><span>État</span>En production chez des conciergeries</td>
+        <td role="cell"><span>Site</span><a href="https://lockeyyou.fr">lockeyyou.fr</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section class="bloc ensemble">
+    <div class="ensemble-texte">
+      <h2>Le système, couche par couche</h2>
+      <p class="chapeau">La coupe de l'accueil, appliquée à un produit en production.</p>
+    </div>
+
+    <table class="nomenclature detaillee" role="table">
+      <caption class="visuellement-cache">Nomenclature de Lockey You : chaque repère correspond à une couche de la coupe et à ce que nous y avons construit</caption>
+      <thead role="rowgroup">
+        <tr role="row"><th role="columnheader" scope="col">Rep.</th><th role="columnheader" scope="col">Désignation</th><th role="columnheader" scope="col">Ce que nous avons construit</th></tr>
+      </thead>
+      <tbody role="rowgroup">
+        <tr role="row" data-rep="5"><td role="cell"><span class="repere">5</span></td><td role="cell">Applications</td><td role="cell">Application web de gestion pour les conciergeries. Application mobile Flutter sur une API REST versionnée. Assistant WhatsApp pour les voyageurs, qui passe la main à l'hôte quand il ne sait pas répondre.</td></tr>
+        <tr role="row" data-rep="4"><td role="cell"><span class="repere">4</span></td><td role="cell">Données</td><td role="cell">Synchronisation des réservations&nbsp;: webhooks Hospitable Connect signés (HMAC), calendriers iCal d'Airbnb, Booking, Beds24 et Smoobu relus toutes les 30 minutes. Journal de chaque entrée, état de santé de chaque boîtier.</td></tr>
+        <tr role="row" data-rep="3"><td role="cell"><span class="repere">3</span></td><td role="cell">Services</td><td role="cell">Plateforme multi-locataire en Python (Flask, SQLAlchemy, MySQL), architecture en couches avec injection de dépendances, hébergée sur AWS (ECS, S3, CloudFront). SMS, appels et WhatsApp par Twilio, abonnements par Stripe, notifications par Firebase.</td></tr>
+        <tr role="row" data-rep="2"><td role="cell"><span class="repere">2</span></td><td role="cell">Liaison</td><td role="cell">MQTT chiffré (TLS) entre les boîtiers et la plateforme, relais Bluetooth vers les serrures, Wi-Fi, appel GSM vers l'interphone en secours, Zigbee pour la domotique.</td></tr>
+        <tr role="row" data-rep="1"><td role="cell"><span class="repere">1</span></td><td role="cell">Objet connecté</td><td role="cell">Boîtier d'interphone LockeyBox&nbsp;: carte conçue sous KiCad autour d'un ESP32, d'un module GSM, d'une horloge temps réel et de sorties isolées. Firmware mis à jour à distance. Serrures et boîtes à clés connectées.</td></tr>
+        <tr role="row" data-rep="t">
+          <td role="cell"><span class="repere"><svg viewBox="0 0 10 20" aria-hidden="true" focusable="false"><path d="M5 4v12" stroke="currentColor" stroke-width="1.4"/><path d="M5 0 1.8 5.5h6.4zM5 20l-3.2-5.5h6.4z" fill="currentColor"/></svg></span></td>
+          <td role="cell">Architecture</td><td role="cell">Chaque choix structurant est écrit&nbsp;: 69 décisions d'architecture, datées et justifiées. Environ 9&nbsp;300 tests automatisés.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {% include coupe.html titre="Coupe A-A de Lockey You" legende="Coupe A-A : Lockey You" %}
+  </section>
+  <script>requestAnimationFrame(() => document.querySelector(".coupe").classList.add("trace"));</script>
+
+  <section class="bloc">
+    <div class="bloc-entete">
+      <h2>État en novembre 2026</h2>
+    </div>
+    <div class="prose bloc-prose">
+      <p>En production&nbsp;: la plateforme, l'application web et les boîtiers installés chez les conciergeries clientes.</p>
+      <p>En cours de mise en service&nbsp;: la nouvelle application mobile, l'assistant WhatsApp et la domotique.</p>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc-entete">
+      <h2>Historique des révisions</h2>
+    </div>
+    <table class="revisions" role="table">
+      <caption class="visuellement-cache">Étapes de Lockey You, par révision</caption>
+      <thead role="rowgroup">
+        <tr role="row"><th role="columnheader" scope="col">Rév.</th><th role="columnheader" scope="col">Date</th><th role="columnheader" scope="col">Description</th></tr>
+      </thead>
+      <tbody role="rowgroup">
+        <tr role="row"><td role="cell"><span class="triangle">A</span></td><td role="cell">Déc. 2023</td><td role="cell">Première plateforme web.</td></tr>
+        <tr role="row"><td role="cell"><span class="triangle">B</span></td><td role="cell">Févr. 2024</td><td role="cell">Gestion centrale des serrures.</td></tr>
+        <tr role="row"><td role="cell"><span class="triangle">C</span></td><td role="cell">Mars 2024</td><td role="cell">Prototype de la carte d'interphone.</td></tr>
+        <tr role="row"><td role="cell"><span class="triangle">D</span></td><td role="cell">Juin 2024</td><td role="cell">Première version en service chez des conciergeries.</td></tr>
+        <tr role="row"><td role="cell"><span class="triangle">E</span></td><td role="cell">Nov. 2026</td><td role="cell">Version 1&nbsp;: API mobile versionnée, nouvelle application, facturation, assistant WhatsApp, domotique en essai.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="bloc appel cloture">
+    <div>
+      <h2>Un objet connecté à concevoir&nbsp;?</h2>
+      <p class="chapeau">Du boîtier au tableau de bord, je peux reprendre chaque couche ou l'ensemble. Décrivez votre projet en quelques lignes.</p>
+      <div class="actions">
+        <a class="bouton principal" href="{{ '/contact/' | relative_url }}">Discuter d'un projet {% include fleche.html %}</a>
+        <a class="bouton" href="https://lockeyyou.fr">Voir lockeyyou.fr</a>
+      </div>
+    </div>
+  </section>
+</div>

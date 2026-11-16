@@ -1,0 +1,6 @@
+{%- comment -%} Mini-coupe : couches 5 (haut) à 1 (bas), hachurées quand elles sont touchées. Paramètre : couches (liste de repères). {%- endcomment -%}
+{%- assign noms = "" | split: "" -%}
+{%- for c in site.data.couches -%}{%- if include.couches contains c.rep -%}{%- assign noms = noms | push: c.nom -%}{%- endif -%}{%- endfor -%}
+<span class="mini" role="img" aria-label="Couches touchées : {{ noms | join: ', ' | downcase }}">
+  {%- for c in site.data.couches -%}<i{% if include.couches contains c.rep %} class="touche"{% endif %}></i>{%- endfor -%}
+</span>

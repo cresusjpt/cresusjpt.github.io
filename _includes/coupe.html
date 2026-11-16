@@ -1,0 +1,108 @@
+{%- comment -%} Vue en coupe A-A, partagée par l'accueil et l'étude de cas Lockey You. Paramètres : titre (accessible), legende (sous le dessin). {%- endcomment -%}
+<figure class="coupe">
+  <svg viewBox="0 -64 440 606" role="img" aria-labelledby="coupe-titre coupe-desc">
+    <title id="coupe-titre">{{ include.titre }}</title>
+    <desc id="coupe-desc">Vue en coupe technique qui empile cinq couches repérées de 1 à 5 : objet connecté (carte, capteur, module et son firmware), liaison (ondes radio et échanges de données), services (baie de serveurs), données (pipeline avec jauge, bride et filtre, qui alimente un entrepôt) et applications (téléphone et navigateur). Une cote verticale indique que l'architecture couvre toute la hauteur.</desc>
+    <defs>
+      <pattern id="h45d" width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v4.5" stroke="currentColor" stroke-width="1"/></pattern>
+      <pattern id="h135d" width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><path d="M0 0v4.5" stroke="currentColor" stroke-width="1"/></pattern>
+      <pattern id="h45m" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v7" stroke="currentColor" stroke-width="1"/></pattern>
+      <pattern id="h135m" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><path d="M0 0v7" stroke="currentColor" stroke-width="1"/></pattern>
+      <pattern id="h45l" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v10" stroke="currentColor" stroke-width="1"/></pattern>
+      <pattern id="sol" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M8 0 0 8" stroke="currentColor"/></pattern>
+      <marker id="fl" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 1.6 10 5 0 8.4z" fill="currentColor"/></marker>
+
+      <g id="plan" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+        <!-- 5 Applications : téléphone et navigateur, vus au-delà du plan de coupe -->
+        <g transform="translate(0 -104)">
+          <rect x="94" y="50" width="64" height="112" rx="11" stroke-width="2.5"/>
+          <rect x="100" y="63" width="52" height="86" rx="2"/>
+          <path d="M118 56.5h16M116 155.5h20" stroke-width="1.8"/>
+          <path d="M105 71h26" stroke-width="2.5"/>
+          <rect x="105" y="79" width="42" height="24"/>
+          <path d="M109 87h26M109 95h18M105 112h42M105 120h34M105 128h38"/>
+          <rect x="105" y="135" width="42" height="9" rx="1"/>
+          <rect x="172" y="62" width="166" height="100" stroke-width="2.5"/>
+          <path d="M172 78h166"/>
+          <circle cx="182" cy="70" r="2.6"/><circle cx="191" cy="70" r="2.6"/><circle cx="200" cy="70" r="2.6"/>
+          <rect x="214" y="66" width="112" height="8" rx="4"/>
+          <path d="M184 93h66" stroke-width="2.5"/>
+          <path d="M184 103h138M184 111h120"/>
+          <path d="M186 124v27h140"/>
+          <path d="m188 146 20-8 20 3 20-11 20 4 20-12 20 4 16-10" stroke-width="1.8"/>
+        </g>
+
+        <!-- 4 Données : pipeline coupé (bride pleine, jauge, bride, filtre) qui alimente l'entrepôt -->
+        <path d="M110 178v-30" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#fl)"/>
+        <rect x="90" y="108" width="6" height="44" fill="url(#h135d)" stroke-width="1.8"/>
+        <path d="M96 116h51v6H96zM96 138h51v6H96zM153 116h31v6h-31zM153 138h31v6h-31zM216 116h45v6h-45zM216 138h45v6h-45z" fill="url(#h45d)" stroke-width="1.8"/>
+        <rect x="147" y="108" width="6" height="44" fill="url(#h135d)" stroke-width="1.8"/>
+        <path d="M184 130 200 108l16 22-16 22z" stroke-width="1.8"/>
+        <path d="M200 112v36" stroke-dasharray="3 3"/>
+        <path d="M100 130h36M157 130h21M222 130h33" stroke-dasharray="10 3 2 3" marker-end="url(#fl)"/>
+        <path d="M124 116v-12" stroke-width="1.5"/>
+        <circle cx="124" cy="92" r="12" stroke-width="1.8"/>
+        <path d="M115.5 96.5l2.2-1.2M124 82.6v2.4M132.5 96.5l-2.2-1.2"/>
+        <path d="M124 92l6.5-6.5" stroke-width="1.8"/>
+        <circle cx="124" cy="92" r="1.6" fill="currentColor" stroke="none"/>
+        <ellipse cx="297" cy="84" rx="36" ry="8" stroke-width="2.5"/>
+        <path d="M261 84v32M261 144v6M333 84v66M261 150a36 8 0 0 0 72 0" stroke-width="2.5"/>
+        <path d="M261 100a36 8 0 0 0 72 0M261 116a36 8 0 0 0 72 0"/>
+
+        <!-- 3 Services : baie coupée, parois hachurées -->
+        <path d="M92 180h246v78H92zM99 187v64h232v-64z" fill="url(#h45l)" fill-rule="evenodd" stroke-width="2.1"/>
+        <rect x="106" y="192" width="218" height="16"/>
+        <rect x="106" y="212" width="218" height="16"/>
+        <rect x="106" y="232" width="218" height="16"/>
+        <path d="M114 200h76M114 220h76M114 240h76"/>
+        <circle cx="300" cy="200" r="2.2" fill="currentColor"/><circle cx="310" cy="200" r="2.2"/>
+        <circle cx="300" cy="220" r="2.2" fill="currentColor"/><circle cx="310" cy="220" r="2.2"/>
+        <circle cx="300" cy="240" r="2.2"/><circle cx="310" cy="240" r="2.2" fill="currentColor"/>
+
+        <!-- 2 Liaison : échanges de données et ondes radio -->
+        <path d="M250 278v70M300 278v70" stroke-width="1.5" stroke-dasharray="5 4" marker-start="url(#fl)" marker-end="url(#fl)"/>
+        <path d="M168.1 382.1a14 14 0 0 1 19.8 0M158.2 372.2a28 28 0 0 1 39.6 0M148.3 362.3a42 42 0 0 1 59.4 0" stroke-width="1.5"/>
+
+        <!-- 1 Objet connecté : antenne, blindage et puces du module, carte, capteur, boîtier -->
+        <path d="M152 404v-7h7v7h7v-7h7v7h7v-7h7v7h7v-7h7v7" stroke-width="1.5"/>
+        <path d="M214 404V368h116v36h-3.5v-32.5h-109V404z" fill="url(#h135d)" stroke-width="1.8"/>
+        <rect x="226" y="384" width="48" height="20" fill="url(#h135m)" stroke-width="1.8"/>
+        <rect x="284" y="390" width="34" height="14" fill="url(#h45m)" stroke-width="1.8"/>
+        <rect x="146" y="404" width="188" height="8" fill="url(#h45d)" stroke-width="1.8"/>
+        <path d="M146 412v8h-7zM334 412v8h7z" fill="currentColor" stroke-width="1"/>
+        <rect x="84" y="420" width="252" height="12" fill="url(#h45d)" stroke-width="2.5"/>
+        <path d="M108 432h38v26h-38zM116 444v8h22v-8z" fill="url(#h135m)" fill-rule="evenodd" stroke-width="1.8"/>
+        <path d="M286 432h42v20h-42zM292 437v10h30v-10z" fill="url(#h135m)" fill-rule="evenodd" stroke-width="1.8"/>
+        <rect x="92" y="432" width="8" height="68" fill="url(#h135m)" stroke-width="1.8"/>
+        <rect x="320" y="432" width="8" height="68" fill="url(#h135m)" stroke-width="1.8"/>
+        <rect x="80" y="500" width="260" height="12" fill="url(#h45m)" stroke-width="2.5"/>
+
+        <!-- Terrain -->
+        <path d="M64 524h292" stroke-width="1.8"/>
+        <rect x="64" y="524" width="292" height="9" fill="url(#sol)" stroke="none"/>
+      </g>
+    </defs>
+
+    <rect class="zone zone-5" x="78" y="-64" width="266" height="128"/>
+    <rect class="zone zone-4" x="78" y="68" width="266" height="100"/>
+    <rect class="zone zone-3" x="78" y="172" width="266" height="92"/>
+    <rect class="zone zone-2" x="78" y="264" width="266" height="96"/>
+    <rect class="zone zone-1" x="78" y="360" width="266" height="156"/>
+
+    <use href="#plan" class="crayon"/>
+    <use href="#plan" class="encre"/>
+
+    <g class="cote" fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M91 -54H42M77 512H42"/>
+      <path d="M46 -54v566" marker-start="url(#fl)" marker-end="url(#fl)"/>
+      <text x="38" y="229" transform="rotate(-90 38 229)" text-anchor="middle" stroke="none">ARCHITECTURE</text>
+    </g>
+
+    <g class="bulle bulle-5" data-rep="5"><path d="M389 0 339 7" marker-end="url(#fl)"/><circle cx="404" cy="0" r="15"/><text x="404" y="0">5</text></g>
+    <g class="bulle bulle-4" data-rep="4"><path d="M389 120 334 120"/><circle class="point" cx="334" cy="120" r="2.6"/><circle cx="404" cy="120" r="15"/><text x="404" y="120">4</text></g>
+    <g class="bulle bulle-3" data-rep="3"><path d="M389 220 335 216"/><circle class="point" cx="335" cy="216" r="2.6"/><circle cx="404" cy="220" r="15"/><text x="404" y="220">3</text></g>
+    <g class="bulle bulle-2" data-rep="2"><path d="M389 306 302 300" marker-end="url(#fl)"/><circle cx="404" cy="306" r="15"/><text x="404" y="306">2</text></g>
+    <g class="bulle bulle-1" data-rep="1"><path d="M389 440 330 426"/><circle class="point" cx="330" cy="426" r="2.6"/><circle cx="404" cy="440" r="15"/><text x="404" y="440">1</text></g>
+  </svg>
+  <figcaption><span>{{ include.legende }}</span><span>Éch. 1:1</span></figcaption>
+</figure>

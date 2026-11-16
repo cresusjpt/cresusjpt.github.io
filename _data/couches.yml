@@ -1,0 +1,19 @@
+# Couches de la vue en coupe A-A, du haut (5) vers le bas (1).
+# « rep » = numéro du repère sur le dessin et dans les mini-coupes.
+# « travail » = ce que Jean-Paul fait sur cette couche (colonne de la nomenclature).
+# Une ligne chacun, 45 caractères au plus : la nomenclature doit tenir dans le premier écran.
+- rep: 5
+  nom: Applications
+  travail: Android et iOS natifs depuis 2015, Flutter
+- rep: 4
+  nom: Données
+  travail: Pipelines, ETL, entrepôts, qualité
+- rep: 3
+  nom: Services
+  travail: Logiciels métier et API, Java et Kotlin
+- rep: 2
+  nom: Liaison
+  travail: BLE, Wi-Fi, MQTT
+- rep: 1
+  nom: Objet connecté
+  travail: Cartes, capteurs, firmware C et C++

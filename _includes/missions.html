@@ -1,0 +1,16 @@
+{%- comment -%} Les rôles ARIA gardent la sémantique du tableau quand il s'empile sur téléphone (display: block). {%- endcomment -%}
+<table class="registre" role="table">
+  <caption class="visuellement-cache">Missions de Jean-Paul Tossou : pour qui, quand, quel travail</caption>
+  <thead role="rowgroup">
+    <tr role="row"><th role="columnheader" scope="col">Pour</th><th role="columnheader" scope="col">Période</th><th role="columnheader" scope="col">Travail</th></tr>
+  </thead>
+  <tbody role="rowgroup">
+    {%- for m in site.data.missions %}
+    <tr role="row">
+      <th role="rowheader" scope="row">{{ m.pour }}</th>
+      <td role="cell" data-titre="Période">{% if m.periode %}{{ m.periode }}{% elsif site.hypotheses %}<span class="a-preciser">À préciser</span>{% endif %}</td>
+      <td role="cell" data-titre="Travail"><span class="travail">{% include mini.html couches=m.couches %}{{ m.travail }}</span></td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>

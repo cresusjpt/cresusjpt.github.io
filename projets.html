@@ -1,0 +1,43 @@
+---
+layout: default
+title: Références et réalisations
+permalink: /projets/
+folio: 02 / 05
+description: "Missions de Jean-Paul Tossou pour la sécurité intérieure, la Commission européenne, la grande distribution, l'industrie et l'assurance, et produits conçus en équipe : Lockey You, diffuseur connecté."
+---
+<div class="contenu">
+  <header class="page-entete">
+    <h1>Références et réalisations</h1>
+    <p class="chapeau">Deux séries&nbsp;: les missions menées pour d'autres, puis les produits conçus de bout en bout. La mini-coupe indique les couches touchées, de l'objet connecté en bas aux applications en haut.</p>
+    {% if site.hypotheses %}<p class="tampon">Textes à valider</p>{% endif %}
+    {% include legende.html %}
+  </header>
+
+  <section class="bloc" id="missions">
+    <div class="bloc-entete">
+      <h2>Missions</h2>
+      <p>Missions menées à mon compte depuis 2020, puis avec Saltech. Les détails des projets restent confidentiels.</p>
+    </div>
+    {% include missions.html %}
+  </section>
+
+  <section class="bloc" id="produits">
+    <div class="bloc-entete">
+      <h2>Produits</h2>
+      <p>Conçus et construits en équipe, de la carte électronique aux applications.</p>
+    </div>
+    <ul class="realisations">
+      {%- for p in site.data.projets %}
+      {% include projet.html projet=p %}
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="bloc appel cloture">
+    <div>
+      <h2>Un projet qui ressemble à l'un de ceux-là&nbsp;?</h2>
+      <p class="chapeau">Décrivez-le en quelques lignes, je vous dis comment je l'aborderais.</p>
+      <a class="bouton principal" href="{{ '/contact/' | relative_url }}">Discuter d'un projet {% include fleche.html %}</a>
+    </div>
+  </section>
+</div>

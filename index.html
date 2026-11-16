@@ -1,54 +1,145 @@
 ---
-layout: splash
-permalink: /
-author_profile: false
-hidden: true
-header:
-  overlay_color: "#5e616c"
-  overlay_image: /assets/images/home-bg.jpg
-  actions:
-    - label: "Voir le contenu !"
-      url: "/articles"
-excerpt: >
-  Vous êtes sur un blog personnel qui partage avec vous des projets, des articles sur des thématiques diverses dans le monde du dévéloppement informatique.<br />
-  <small><a href="/about/">A propos de moi</a></small>
-feature_row:
-  - image_path: /assets/images/gp_info.png
-    alt: "project"
-    title: "Projets"
-    excerpt: "Ici vous verrez des projets académiques, professionnels, personnels, des bricolages avec des descriptions détaillées et un accès au codes sources !"
-    url: "/docs/configuration/"
-    btn_class: "btn--primary"
-    btn_label: "Plus"
-  - image_path: /assets/images/art_info.jpg
-    alt: "articles"
-    title: "Articles"
-    excerpt: "Des articles sur des thématiques de la programmation. Ces articles aborderons toujours des sujets et concepts sur lesquels j'ai eu à bosser et que je trouve utiles de partager."
-    url: "/docs/layouts/"
-    btn_class: "btn--primary"
-    btn_label: "Plus"
-  - image_path: /assets/images/tuto_info.jpg
-    alt: "tuto"
-    title: "Tutoriels & Astuces"
-    excerpt: "Des astuces pour résoudre des problèmes précis et courants en dévéloppements d'application ou sur le gpio de la raspberry.!"
-    url: "/docs/license/"
-    btn_class: "btn--primary"
-    btn_label: "Plus"
+layout: default
+folio: 01 / 05
 ---
-{% include index_row %}
-<div class="tiles">
+<section class="contenu ensemble">
+  <div class="ensemble-texte">
+    <h1>Architecte logiciel, du capteur à&nbsp;l'application.</h1>
+    <p class="chapeau">Je suis Jean-Paul Tossou, ingénieur et fondateur de Saltech. Je conçois des systèmes complets pour le secteur public et de grands groupes.</p>
+    <div class="actions">
+      <a class="bouton principal" href="{{ '/contact/' | relative_url }}">Discuter d'un projet {% include fleche.html %}</a>
+      <a class="bouton" href="{{ '/projets/' | relative_url }}">Voir les références</a>
+      {% if site.hypotheses %}<p class="tampon">Hypothèses à valider</p>{% endif %}
+    </div>
+  </div>
 
-  <div class="tile">
-    <h2 class="post-title">Auteur</h2>
-    <p class="post-excerpt">Je m'appelle Jeanpaul Tossou, auteur de ce blog.
-      Ingénieur logiciel, j'aime beaucoup le développement embarqué, l'électronique et le clean code.
-      Mais je suis avant tout un passionné de technologie de toute sortes. Ce qui fait que je touche à beaucoup de choses jusqu'à parfois à divaguer des priorités.
-      <br /><br />J'ai mis en place ce blog pour partager avec vous tout ce que j'apprends et c'est également un moyen de faire une veille technologique, vue la vitesse à laquelle les choses évoluent dans notre domaine.
-      <br /><br />Je contribue aussi souvent que je peux sur des projets Open Source.
-      Je suis mentor Google pour le développement mobile ( Android -Kotlin & Java - et IOS - Flutter -).
-      J'ai quelques certifications en développement, gestion de projet et data science disponibles sur mon profil linkedin.
-      Plus de détails sur mes réseaux sociaux.
-    </p>
-  </div><!-- /.tile -->
+    <table class="nomenclature" role="table">
+      <caption class="visuellement-cache">Nomenclature de la coupe A-A : chaque repère correspond à une couche du dessin et à ce que j'y fais.</caption>
+      <thead role="rowgroup">
+        <tr role="row"><th role="columnheader" scope="col">Rep.</th><th role="columnheader" scope="col">Désignation</th><th role="columnheader" scope="col">Ce que j'y fais</th></tr>
+      </thead>
+      <tbody role="rowgroup">
+        {%- for c in site.data.couches %}
+        <tr role="row" data-rep="{{ c.rep }}"><td role="cell"><span class="repere">{{ c.rep }}</span></td><td role="cell">{{ c.nom }}</td><td role="cell">{{ c.travail }}</td></tr>
+        {%- endfor %}
+        <tr role="row" data-rep="t">
+          <td role="cell"><span class="repere"><svg viewBox="0 0 10 20" aria-hidden="true" focusable="false"><path d="M5 4v12" stroke="currentColor" stroke-width="1.4"/><path d="M5 0 1.8 5.5h6.4zM5 20l-3.2-5.5h6.4z" fill="currentColor"/></svg></span></td>
+          <td role="cell">Architecture</td><td role="cell">Cohérence de l'ensemble</td>
+        </tr>
+      </tbody>
+    </table>
 
-</div><!-- /.tiles -->
+  {% include coupe.html titre="Coupe A-A d'un système complet" legende="Coupe A-A : un système complet" %}
+  <script>requestAnimationFrame(() => document.querySelector(".coupe").classList.add("trace"));</script>
+</section>
+
+<section class="bloc">
+  <div class="contenu">
+    <div class="bloc-entete">
+      <h2>Ce que je fais</h2>
+      <p>Trois métiers sur une même coupe. Les repères renvoient aux couches du dessin.</p>
+    </div>
+    <div class="metiers">
+      <article class="metier">
+        <p class="metier-reperes"><span class="visuellement-cache">Repères </span><span class="repere">5</span> <span class="repere">3</span></p>
+        <div class="metier-corps">
+          <h3>Logiciels métier et applications mobiles</h3>
+          <p class="metier-preuve">Depuis 2015</p>
+          <p>Je conçois et je développe des logiciels métier en Java et en Kotlin, et des applications mobiles natives pour Android et iOS, avec Flutter quand un seul code doit servir les deux plateformes. Mon rôle va de l'architecture au code livré, pour des logiciels qui doivent durer.</p>
+        </div>
+        <dl class="fiche">
+          <div><dt>Outils</dt><dd>Java, Kotlin, Swift, Flutter</dd></div>
+          <div><dt>Certifications</dt><dd>Java, Kotlin</dd></div>
+        </dl>
+      </article>
+      <article class="metier">
+        <p class="metier-reperes"><span class="visuellement-cache">Repère </span><span class="repere">4</span></p>
+        <div class="metier-corps">
+          <h3>Ingénierie des données</h3>
+          <p class="metier-preuve">Aéronautique, construction, assurance</p>
+          <p>Je construis les chaînes qui amènent une donnée fiable jusqu'à ceux qui décident&nbsp;: pipelines et ETL, entrepôts, règles de qualité, observabilité. Après deux ans à mettre en place la qualité des données et l'entrepôt d'un industriel présent sur plusieurs sites en France, je poursuis dans la construction et l'assurance.</p>
+        </div>
+        <dl class="fiche">
+          <div><dt>Formation</dt><dd>Master Industrie 4.0, université de Pau et des Pays de l'Adour</dd></div>
+        </dl>
+      </article>
+      <article class="metier">
+        <p class="metier-reperes"><span class="visuellement-cache">Repères </span><span class="repere">2</span> <span class="repere">1</span></p>
+        <div class="metier-corps">
+          <h3>Objets connectés et domotique</h3>
+          <p class="metier-preuve">Cofondateur de Lockey You</p>
+          <p>C'est le domaine qui me passionne&nbsp;: cartes et capteurs, firmware, liaisons radio, puis les services et les applications qui les pilotent. Chez <a href="{{ '/projets/lockey-you/' | relative_url }}">Lockey You</a>, nous construisons en équipe toute la chaîne, du boîtier électronique à la plateforme en production, et j'en porte l'architecture.</p>
+        </div>
+        <dl class="fiche">
+          <div><dt>Autre réalisation</dt><dd>Diffuseur de parfum connecté, 2020 – 2021</dd></div>
+          <div><dt>Outils</dt><dd>ESP32, C et C++, MQTT, BLE, Wi-Fi</dd></div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="bloc">
+  <div class="contenu">
+    <div class="bloc-entete">
+      <h2>Références</h2>
+      <p>Missions menées à mon compte depuis 2020, puis avec Saltech. Les détails des projets restent confidentiels.</p>
+    </div>
+    {% include missions.html %}
+    {% include legende.html %}
+  </div>
+</section>
+
+<section class="bloc">
+  <div class="contenu">
+    <div class="bloc-entete">
+      <h2>Réalisations</h2>
+      {% if site.hypotheses %}<p class="tampon">Textes à valider</p>{% endif %}
+      <a class="lien-fleche" href="{{ '/projets/' | relative_url }}">Références et réalisations {% include fleche.html %}</a>
+    </div>
+    <ul class="realisations">
+      {%- for p in site.data.projets limit: 2 %}
+      {% include projet.html projet=p %}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{% if site.posts.size > 0 %}
+<section class="bloc">
+  <div class="contenu">
+    <div class="bloc-entete">
+      <h2>Notes techniques</h2>
+      <a class="lien-fleche" href="{{ '/blog/' | relative_url }}">Toutes les notes {% include fleche.html %}</a>
+    </div>
+    <ul class="notes">
+      {%- for post in site.posts limit: 3 %}
+      {%- assign numero = site.posts.size | minus: forloop.index0 %}
+      {% include note.html note=post numero=numero %}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% include saltech.html %}
+
+<section class="bloc">
+  <div class="contenu appel">
+    <div>
+      <h2>Un projet, une mission, une équipe&nbsp;?</h2>
+      <p class="chapeau">Décrivez votre besoin en quelques lignes. Je vous réponds personnellement, avec des questions précises ou une première approche.</p>
+      <div class="actions">
+        <a class="bouton principal" href="{{ '/contact/' | relative_url }}">Écrire à Jean-Paul {% include fleche.html %}</a>
+        {% if site.rendez_vous %}<a class="bouton" href="{{ site.rendez_vous }}">Prendre rendez-vous</a>{% endif %}
+      </div>
+    </div>
+    <div>
+    <ul class="canaux">
+      <li><span>E-mail</span><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+      <li><span>LinkedIn</span><a href="{{ site.author.linkedin }}">jean-paul-tossou</a></li>
+      <li><span>GitHub</span><a href="{{ site.author.github }}">cresusjpt</a></li>
+    </ul>
+    </div>
+  </div>
+</section>

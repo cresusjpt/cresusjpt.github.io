@@ -1,0 +1,41 @@
+# Missions menées à son compte depuis 2020, puis avec Saltech (créée en 2024).
+# Toutes apparaissent sur l'accueil et sur /projets/.
+#
+# Politique de références :
+# - nom de l'entité ou secteur, avec le travail réellement fait ;
+# - jamais « client » pour une entité servie par un intermédiaire ;
+# - ni logo ni détail de projet ;
+# - sécurité intérieure : formulation sectorielle tant qu'il n'y a pas d'accord écrit ;
+# - le cadre contractuel exact (intermédiaire, sous-traitance) va dans les dossiers d'appel d'offres, pas sur le site.
+#
+# Champ vide = information à préciser : la mention « À préciser » s'affiche tant que `hypotheses: true`.
+- pour: Un acteur de la sécurité intérieure
+  periode: Depuis 2022
+  travail: Applications métier et mobiles en Java et en Kotlin
+  couches: [3, 5]
+
+- pour: Commission européenne, direction informatique (DIGIT)
+  periode:
+  travail: Ingénierie logicielle
+  couches: [3]
+
+- pour: Carrefour et Carrefour Assurance
+  periode:
+  travail: Ingénierie logicielle
+  couches: [3]
+
+- pour: Un assureur
+  # Si c'est Carrefour Assurance, fusionner avec la ligne précédente.
+  periode:
+  travail: Ingénierie des données
+  couches: [4]
+
+- pour: Un industriel de la construction
+  periode:
+  travail: Ingénierie des données
+  couches: [4]
+
+- pour: Un industriel de l'aéronautique, présent sur plusieurs sites en France
+  periode: Deux ans
+  travail: Qualité des données et entrepôt de données
+  couches: [4]

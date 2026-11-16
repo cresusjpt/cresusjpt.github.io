@@ -1,0 +1,10 @@
+{%- assign n = include.note -%}
+{%- assign niveau = include.niveau | default: 3 -%}
+{%- assign mots = n.content | number_of_words -%}
+<li>
+  <span class="numero">NT-{{ include.numero | prepend: "00" | slice: -3, 3 }}</span>
+  {% include date.html date=n.date %}
+  <h{{ niveau }} class="titre"><a href="{{ n.url | relative_url }}">{{ n.title }}</a></h{{ niveau }}>
+  <span class="duree">{{ mots | plus: 199 | divided_by: 200 }} min</span>
+  {% if n.description %}<p class="extrait">{{ n.description }}</p>{% endif %}
+</li>

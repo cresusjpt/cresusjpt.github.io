@@ -1,0 +1,13 @@
+{%- assign p = include.projet -%}
+<li class="realisation">
+  {% include mini.html couches=p.couches %}
+  <div>
+    <h3>{{ p.titre }}</h3>
+    <p class="periode">{{ p.periode }}</p>
+  </div>
+  <div>
+    <p class="resume">{{ p.resume }}</p>
+    <ul class="pile">{% for t in p.pile %}<li>{{ t }}</li>{% endfor %}</ul>
+    {% if p.lien %}<a class="lien-fleche" href="{{ p.lien | relative_url }}">{{ p.lien_texte }} {% include fleche.html %}</a>{% endif %}
+  </div>
+</li>

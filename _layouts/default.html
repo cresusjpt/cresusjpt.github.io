@@ -1,36 +1,80 @@
----
----
+<!doctype html>
+<html lang="{{ site.lang | default: 'fr' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d2e4d" media="(prefers-color-scheme: dark)">
+  {% seo %}
+  {% feed_meta %}
+  <link rel="preload" href="{{ '/assets/fonts/osifont-lgpl3fe.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  {%- if page.url == "/" or page.url == "/about/" %}
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person", "@id": "{{ '/#personne' | absolute_url }}", "name": "{{ site.author.name }}", "jobTitle": "Architecte logiciel", "url": "{{ '/' | absolute_url }}", "image": "{{ '/assets/images/portrait.jpg' | absolute_url }}", "worksFor": {"@type": "Organization", "name": "Saltech", "url": "{{ site.saltech }}"}, "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Université de Pau et des Pays de l'Adour"}, {"@type": "CollegeOrUniversity", "name": "Institut Africain d'Informatique"}], "knowsAbout": ["Architecture logicielle", "Applications mobiles", "Ingénierie des données", "Internet des objets"], "sameAs": ["{{ site.author.linkedin }}", "{{ site.author.github }}"]}
+  </script>
+  {%- endif %}
+</head>
+<body>
+<!--
+THESIS: The site is a technical drawing. Section view A-A cuts one system from sensor to application (object, link, services, data, apps) and proves the founder of Saltech architects the whole stack; missions and products carry the proof, not tech lists; it refuses the dark neon developer portfolio and its logo grids.
+OWN-WORLD: Cool white drafting sheet, graphite ink, ISO thin/thick lines, opposed 45° hatching between neighbouring parts, circled balloons, title block as footer, red redline for the action; cyanotype blueprint in dark mode, where the redline turns yellow for AA contrast. ISO 3098 lettering (osifont), text in Atkinson Hyperlegible Next.
+STORY: The visitor learns who and what (architect, three trades on one section), checks missions with their contractual frame and the Lockey You case study, finds Saltech for team work, then writes through the form.
+FIRST VIEWPORT: Left: lettered H1, lead naming him, two actions (red "Discuter d'un projet"), parts list 5 to 1. Right: section A-A inked by a plotter, balloons tied to the parts list.
+FORM: Technical drawing sheet, rank 5 of 7, seed 5ce24b11.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+  <a class="evitement" href="#contenu">Aller au contenu</a>
+  <div class="feuille">
+    <div class="regle" aria-hidden="true">{% for i in (1..8) %}<span>{{ i }}</span>{% endfor %}</div>
+    <header class="entete">
+      <a class="signature" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>
+        <strong>{{ site.author.name }}</strong>
+        <span>{{ site.author.role }}</span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          {%- assign rubriques = "Références:/projets/|Blog:/blog/|Parcours:/about/" | split: "|" -%}
+          {%- for rubrique in rubriques -%}
+            {%- assign r = rubrique | split: ":" -%}
+            <li><a href="{{ r[1] | relative_url }}"{% if page.url == r[1] or page.rubrique == r[1] %} aria-current="page"{% endif %}>{{ r[0] }}</a></li>
+          {%- endfor -%}
+          <li><a class="contact" href="{{ '/contact/' | relative_url }}"{% if page.url == '/contact/' %} aria-current="page"{% endif %}>Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<!DOCTYPE html>
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
-
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-    {% include_cached skip-links.html %}
-    {% include_cached browser-upgrade.html %}
-    {% include_cached masthead.html %}
-
-    <div class="initial-content">
+    <main id="contenu">
       {{ content }}
-    </div>
+    </main>
 
-    {% if site.search == true %}
-      <div class="search-content">
-        {% include_cached search/search_form.html %}
-      </div>
-    {% endif %}
-
-    <div id="footer" class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include_cached footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
-
-  </body>
+    <footer class="pied">
+      <p class="colophon">Site statique sans traceur, publié avec Jekyll sur GitHub Pages. <a href="https://github.com/cresusjpt/cresusjpt.github.io">Code source</a>.</p>
+      <table class="cartouche">
+        <caption class="visuellement-cache">Cartouche</caption>
+        <tr>
+          <td colspan="3" class="cartouche-nom"><span>Dessiné par</span>{{ site.author.name }}</td>
+          <td><span>Rév.</span>{{ site.revision }}</td>
+        </tr>
+        <tr>
+          <td><span>Folio</span>{{ page.folio | default: "–" }}</td>
+          <td><span>Titre</span>{{ page.title | default: "Accueil" }}</td>
+          <td><span>Mise à jour</span>{{ site.time | date: "%d/%m/%Y" }}</td>
+          <td><span>Éch.</span>1:1</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="cartouche-liens">
+            <a href="mailto:{{ site.author.email }}">E-mail</a>
+            <a href="{{ site.author.linkedin }}">LinkedIn</a>
+            <a href="{{ site.author.github }}">GitHub</a>
+            <a href="{{ '/feed.xml' | relative_url }}">Flux RSS</a>
+          </td>
+        </tr>
+      </table>
+    </footer>
+  </div>
+</body>
 </html>

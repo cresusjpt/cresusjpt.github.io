@@ -1,0 +1,24 @@
+{%- comment -%} Bloc Saltech : texte à gauche, cartouche de la société à droite (même grammaire que le pied de page). {%- endcomment -%}
+<section class="bloc">
+  <div class="contenu appel">
+    <div>
+      <h2>Pour une équipe&nbsp;: Saltech.</h2>
+      <p class="chapeau">J'exerce à mon compte depuis 2020. Saltech, ma société d'ingénierie logicielle, réunit une équipe et un réseau de consultants seniors&nbsp;: quand une mission demande plus qu'une personne, c'est par elle que je réponds.</p>
+      <a class="lien-fleche" href="{{ site.saltech }}">Voir saltech.fr {% include fleche.html %}</a>
+    </div>
+    <table class="cartouche cartouche-societe">
+      <caption class="visuellement-cache">Saltech en bref</caption>
+      <tr>
+        <td class="cartouche-nom"><span>Société</span>Saltech</td>
+        <td><span>Fondée en</span>2024</td>
+      </tr>
+      <tr>
+        <td><span>Fondateur</span>{{ site.author.name }}</td>
+        <td><span>Site</span><a href="{{ site.saltech }}">saltech.fr</a></td>
+      </tr>
+      <tr>
+        <td colspan="2"><span>Métiers</span>Ingénierie et architecture logicielle, données</td>
+      </tr>
+    </table>
+  </div>
+</section>
